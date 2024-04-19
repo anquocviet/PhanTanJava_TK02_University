@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,9 @@ public class Person implements Serializable {
    private String email;
 
    private String phone;
+
+   @OneToOne(mappedBy = "person")
+   private Department department;
 
    @OneToMany(mappedBy = "person")
    @ToString.Exclude
